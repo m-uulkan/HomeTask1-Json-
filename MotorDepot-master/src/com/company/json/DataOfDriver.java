@@ -1,4 +1,4 @@
-package com.company.jsonOne;
+package com.company.json;
 
 
 import com.google.gson.Gson;
@@ -18,19 +18,28 @@ public class DataOfDriver {
     public  static Gson GSON = BUILDER.setPrettyPrinting().create();
     private  static final Path WRITE_PATH = Paths.get("./dataframe.json");
 
-    private String id;
+    private int number;
+    private String  id;
+    private String driver;
     private String name;
 
-    public DataOfDriver(String id, String name) {
+
+
+    public DataOfDriver() {
+    }
+
+    public DataOfDriver(int number,String id, String driver) {
+        this.number=number;
         this.id = id;
-        this.name = name;
+        this.driver = driver;
+
     }
 
     @Override
     public String toString() {
-
-        return id + " |" + " " + name + "   |";
-
+        return
+                number+" " + id+" " +
+                 "  "+driver +"   ";
     }
 
     public static void writeJson(String object1) {
@@ -43,19 +52,4 @@ public class DataOfDriver {
     }
 
 
-    public static void getResultOfDriver() {
-        System.out.println("#   Driver           |  Bus");
-        System.out.println("***_*****************_******");
-        DataOfDriver[] dataOfDrivers = {
-                new DataOfDriver("1", "Petr"),
-                new DataOfDriver("2", "Jenya"),
-                new DataOfDriver("3", "Vova")
-        };
-        String gson1 = GSON.toJson(dataOfDrivers);
-        writeJson(gson1);
-        for (DataOfDriver d :
-                dataOfDrivers) {
-            System.out.println(d.toString());
-        }
-    }
 }
