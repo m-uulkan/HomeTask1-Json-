@@ -29,18 +29,18 @@ import java.util.List;
     private String name;
     private String driver;
     private String state;
-    private String st;
+
 
     public AutoPark() {
     }
 
 
 
-    public AutoPark(int id, String name, String driver, String st) {
+    public AutoPark(int id, String name, String driver, String state) {
         this.id = id;
         this.name = name;
         this.driver = driver;
-        this.st = st;
+        this.state = state;
     }
 
     @Override
