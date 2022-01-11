@@ -41,7 +41,7 @@ public class DataOfDriver {
     public String toString() {
         return
                 number+" " + id+" " +
-                 "  "+driver +"   ";
+                 "  "+driver +"   "+name;
     }
     public static  void getInfoDrivers(){
         System.out.println("# | id|  Driver           |  Bus");
