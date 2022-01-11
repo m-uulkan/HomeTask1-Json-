@@ -29,19 +29,14 @@ import java.util.List;
     private String name;
     private String driver;
     private String state;
-    private State st;
+    private String st;
 
     public AutoPark() {
     }
 
-    public AutoPark(int id, String name, String driver, String state) {
-        this.id = id;
-        this.name = name;
-        this.driver = driver;
-        this.state = state;
-    }
 
-    public AutoPark(int id, String name, String driver, State st) {
+
+    public AutoPark(int id, String name, String driver, String st) {
         this.id = id;
         this.name = name;
         this.driver = driver;
@@ -78,6 +73,23 @@ import java.util.List;
             e.printStackTrace();
         }return json;
     }
+           public static void getInfoAuto(){
+               System.out.println("#  | Bus     |  Driver  |  State");
+               System.out.println("***_*********_**********_********");
+               AutoPark[] parks = {
+                       new AutoPark(1, "Renault", "", "base"),
+                       new AutoPark(2, "Volvo", "", "base"),
+                       new AutoPark(3, "DAF XT", "", "base")
+               };
+               String gson = GSON.toJson(parks);
+               AutoPark.writeJson(gson);
+               AutoPark[] parks1 = GSON.fromJson(AutoPark.readJson(), AutoPark[].class);
+               for (AutoPark p :
+                       parks1) {
+                   System.out.println(p.toString());
+               }
+
+           }
+           }
 
 
-    }
