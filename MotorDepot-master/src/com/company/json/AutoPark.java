@@ -45,11 +45,13 @@ import java.util.List;
 
     @Override
     public String toString() {
-        return id + "    " +
-                name + "|   " +
-                driver + "|   " +
-                state + "  ";
+        return
+                " " + id +
+                        " | " + name +
+                        "   |    " + driver +
+                        "      |  " + state;
     }
+
 
     public static void writeJson(String object1) {
         Path writePath = Paths.get(String.valueOf(WRITE_PATH));

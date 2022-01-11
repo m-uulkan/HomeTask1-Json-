@@ -5,8 +5,14 @@ import com.company.json.DataOfDriver;
 import com.company.json.ServiceImpl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.PathMatcher;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 
@@ -17,6 +23,8 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
+//        String string=new String(Files.readAllBytes(Paths.get("C:\\Users\\User\\Downloads\\MotorDepot-master (2)\\autoPark.json")));
+//        JSONObject jsonObject=new JSONObject(string);
 
         AutoPark[] autoParks = {
                 new AutoPark(1, "Renault", "", "base"),
@@ -39,18 +47,21 @@ public class Main {
             ServiceImpl service = new ServiceImpl();
             getCommands();
             String action = sc.nextLine();
-            if (action.equals("1")) {
-                service.changeDriver(autoParks[input - 1], dataOfDrivers[input - 1]);
-            } else if (action.equals("2")) {
-                service.startDriving(autoParks[input - 1], dataOfDrivers[input - 1]);
-            } else if (action.equals("3")) {
-                service.startRepair(autoParks[input - 1], dataOfDrivers[input - 1]);
+            switch (action) {
+                case("1"):
+                    service.changeDriver(autoParks[input - 1], dataOfDrivers[input - 1]);
+                    break;
+                case("2"):
+                    service.startDriving(autoParks[input - 1], dataOfDrivers[input - 1]);
+                    break;
+                case("3"):
+                    service.startRepair(autoParks[input - 1], dataOfDrivers[input - 1]);
+                break;
             }
             print(autoParks);
             print(dataOfDrivers);
 
         }
-
 
     }
     public static void print(AutoPark[] cars) {
@@ -76,6 +87,7 @@ public class Main {
         System.out.println("Press to 2 to start driving");
         System.out.println("Press to 3 to start repair");
     }
+
 
 
 }

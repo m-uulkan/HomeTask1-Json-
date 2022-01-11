@@ -40,8 +40,9 @@ public class DataOfDriver {
     @Override
     public String toString() {
         return
-                number+" " + id+" " +
-                 "  "+driver +"   "+name;
+                " " + id +
+                        " |    " + driver +
+                        "    |" + name;
     }
     public static  void getInfoDrivers(){
         System.out.println("# | id|  Driver           |  Bus");
