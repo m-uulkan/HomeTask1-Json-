@@ -17,15 +17,13 @@ import java.util.Scanner;
 
 
 public class Main {
-    static  Scanner sc=new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
     public static final GsonBuilder BUILDER = new GsonBuilder();
     public static final Gson GSON = BUILDER.setPrettyPrinting().create();
 
 
     public static void main(String[] args) throws IOException {
-//        String string=new String(Files.readAllBytes(Paths.get("C:\\Users\\User\\Downloads\\MotorDepot-master (2)\\autoPark.json")));
-//        JSONObject jsonObject=new JSONObject(string);
-
+//
         AutoPark[] autoParks = {
                 new AutoPark(1, "Renault", "", "base"),
                 new AutoPark(2, "Volvo", "", "base"),
@@ -56,7 +54,7 @@ public class Main {
                     break;
                 case("3"):
                     service.startRepair(autoParks[input - 1], dataOfDrivers[input - 1]);
-                break;
+                    break;
             }
             print(autoParks);
             print(dataOfDrivers);
@@ -87,6 +85,7 @@ public class Main {
         System.out.println("Press to 2 to start driving");
         System.out.println("Press to 3 to start repair");
     }
+
 
 
 
